@@ -1,8 +1,12 @@
+SERVER_SRC=server.cc
+SERVER=server
+CLIENT_SRC=client.cc
+CLIENT=client
+LIBS=-luWS -lpthread -lz -std=c++11
 
 all:
-	$(CXX) demo.cc -o demo -std=c++11 -luWS -lz -lpthread
-	$(CXX) server.cc -o server -std=c++11 -luWS -lpthread -lz
-	$(CXX) client.cc -o client -std=c++11 -luWS -lpthread -lz
+	$(CXX) $(SERVER_SRC) -o $(SERVER) $(LIBS)
+	$(CXX) $(CLIENT_SRC) -o $(CLIENT) $(LIBS)
 
 clean:
-	rm -rf demo server client
+	rm -rf $(SERVER) $(CLIENT)
